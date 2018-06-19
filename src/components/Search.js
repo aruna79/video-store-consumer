@@ -19,6 +19,7 @@ class Search extends Component{
   onFormSubmit = (event) => {
     event.preventDefault();
     this.props.searchMovieCallback(this.state.query);
+    console.log(this.state.query);
   }
 
   render(){
