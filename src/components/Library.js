@@ -11,7 +11,7 @@ class Library extends Component {
     }
   }
 
-  retrieveMovies = () => {
+  componentDidMount = () => {
     axios.get(`http://localhost:3000/movies`)
     .then((response) => {
       this.setState({
@@ -42,9 +42,9 @@ class Library extends Component {
   render() {
     return(
       <section>
-      <header><h2> Library </h2></header>
-      <p>{this.state.error}</p>
-      {this.renderMovieList()}
+        <header><h2> Library </h2></header>
+        <p>{this.state.error}</p>
+        { this.renderMovieList()}
       </section>
     )
   }
