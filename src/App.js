@@ -9,6 +9,7 @@ import {
 import './App.css';
 import SearchCollection from './components/SearchCollection';
 import CustomerCollection from './components/CustomerCollection';
+import Library from './components/Library';
 
 
 class App extends Component {
@@ -48,9 +49,11 @@ class App extends Component {
       <Route exact path="/" component={home}/>
       <Route path="/search" component={SearchCollection}/>
       <Route path="/customers" component={CustomerCollection}/>
+
       render () => {
         <Library selectedMoviecallback = {this.selectedMovie} />
       }
+
       </section>
       </Router>
     );
