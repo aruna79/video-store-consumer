@@ -32,6 +32,7 @@ class Library extends Component {
         id={movie.id}
         image={movie.image_url}
         title={movie.title}
+        selectedMovieCallback={this.props.selectedMovieCallback}
         />
 
       )

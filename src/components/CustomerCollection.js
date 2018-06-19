@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Customer from './Customer.js'
 
-const URL = "http://localhost:3000/customers/"
+const URL = "http://localhost:3000/customers"
 
 class CustomerCollection extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       customers: [],
@@ -28,14 +28,16 @@ class CustomerCollection extends Component {
   }
 
   renderCustomerList = () => {
-    const customerList = this.state.customers.map((customer) => {
+    const customerList = this.state.customers.map((customer,index) => {
       return (
         <Customer
-          key={customer.id}
+          key={index}
+          id={customer.id}
           name={customer.name}
           phone={customer.phone}
           accountCredit={customer.account_credit}
           checkedOutMoviesCount={customer.movies_check_out_count}
+          selectedCustomerCallback={this.props.selectedCustomerCallback}
         />
       );
     });
