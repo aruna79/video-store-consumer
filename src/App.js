@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SearchCollection from './components/SearchCollection';
+import Library from './components/Library'
 
 class App extends Component {
   render() {
@@ -14,7 +15,6 @@ class App extends Component {
           <div>Selected Movie</div>
           <div>Selected Customer</div>
         </header>
-        < SearchCollection />
       </div>
     );
   }
