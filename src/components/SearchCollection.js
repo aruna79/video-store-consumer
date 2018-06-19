@@ -24,17 +24,25 @@ class SearchCollection extends Component {
     });
   }
 
+  onFormSubmit = (event) => {
+    const movies = this.state.matchingMovies
+    event.preventDefault();
+    console.log(movies[event.target.getAttribute('value')]);
+  }
+
 
   renderMovieList = () => {
     const componentList = this.state.matchingMovies.map((movie,index) =>{
       return (
-        <Movie
-        key={index}
-        id={movie.id}
-        image={movie.image_url}
-        title={movie.title}
-        />
-
+        <form key={movie.title} onSubmit={this.onFormSubmit} value={index}  >
+          <Movie
+            value={index}
+            key={index}
+            title={movie.title}
+            image={movie.image_url}
+          />
+          <input type='submit' value='Add to Library'/>
+        </form>
       )
     } );
     return componentList;
@@ -43,11 +51,10 @@ class SearchCollection extends Component {
   render() {
     return(
       <section>
-      <header><h2>Movies Found </h2></header>
       <p>{this.state.error}</p>
       <Search
         searchMovieCallback={this.searchMovie}
-        />
+      />
       {this.renderMovieList()}
       </section>
     )
