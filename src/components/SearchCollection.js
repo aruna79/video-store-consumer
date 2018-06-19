@@ -13,8 +13,6 @@ class SearchCollection extends Component {
   }
 
   searchMovie = (movie) => {
-
-
     axios.get(`http://localhost:3000/movies?query=${movie}`)
     .then((response) => {
       this.setState({
