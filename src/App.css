@@ -14,6 +14,11 @@
   color: white;
 }
 
+.App-header div {
+  display: inline-block;
+  margin-right: 20px;
+}
+
 .App-title {
   font-size: 1.5em;
 }
