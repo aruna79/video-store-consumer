@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SearchCollection from './components/SearchCollection';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router';
+import Nav from './components/Nav';
+import Search from './components/Search';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <div>Search</div>
-          <div>Library</div>
-          <div>Customers</div>
-          <div>Selected Movie</div>
-          <div>Selected Customer</div>
-        </header>
-        < SearchCollection />
-      </div>
+          <Router>
+            <div>
+              <Nav />
+              <Switch>
+                <Route exactly component={Search} pattern="/search" render={Search}/>
+              </Switch>
+            </div>
+          </Router>
+        </div>
     );
   }
 }
