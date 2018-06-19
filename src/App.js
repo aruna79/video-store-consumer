@@ -12,6 +12,19 @@ import CustomerCollection from './components/CustomerCollection';
 
 
 class App extends Component {
+  constructor () {
+    super()
+  this.state = {
+      selectedMovie: "",
+      selectedCustomer: "",
+    }
+  }
+
+  setSelectedMovie = (title) => {
+    this.setState({
+      selectedMovie: title,
+    });
+  }
 
   render() {
 
@@ -27,6 +40,7 @@ class App extends Component {
       <li><Link to="/">Home</Link></li>
       <li><Link to="/search">Search</Link></li>
       <li><Link to="/customers">CustomerCollection</Link></li>
+      <li>selectedMovie: {this.state.selectedMovie}</li>
       </ul>
 
 
@@ -34,6 +48,9 @@ class App extends Component {
       <Route exact path="/" component={home}/>
       <Route path="/search" component={SearchCollection}/>
       <Route path="/customers" component={CustomerCollection}/>
+      render () => {
+        <Library selectedMoviecallback = {this.selectedMovie} />
+      }
       </section>
       </Router>
     );
