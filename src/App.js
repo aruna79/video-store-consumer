@@ -6,6 +6,13 @@ import {
 } from 'react-router'
 
 import './App.css';
+<<<<<<< HEAD
+=======
+import SearchCollection from './components/SearchCollection';
+// import { Router, Route, Switch, Link } from 'react-router'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import Search from './components/Search'
+>>>>>>> ed242354a289ed40aa19528d272d28d53a5bda88
 
 class App extends Component {
   render() {
@@ -15,6 +22,7 @@ class App extends Component {
     };
 
     return (
+<<<<<<< HEAD
         <Router>
           <section>
             <ul>
@@ -32,6 +40,14 @@ class App extends Component {
             {/*<Route path="/customers" component={Customers}/>*/}
           </section>
         </Router>
+=======
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to Video Store</h1>
+        </header>
+      </div>
+>>>>>>> ed242354a289ed40aa19528d272d28d53a5bda88
     );
   }
 }
