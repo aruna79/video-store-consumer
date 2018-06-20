@@ -11,7 +11,7 @@ import SearchCollection from './components/SearchCollection';
 import CustomerCollection from './components/CustomerCollection';
 import Library from './components/Library';
 
-const URL = "http://localhost:3000/rentals/check-out"
+const URL = "http://localhost:3000/rentals/"
 
 class App extends Component {
   constructor () {
@@ -34,32 +34,11 @@ class App extends Component {
       customerId: id
     });
   }
- //  makeRental = (event) => {
- //
- //
- //   let date = new Date();
- //   date.setDate(date.getDate() + 7);
- //   console.log("aruna");
- //   console.log(event);
- //   console.log("!!!!!")
- //   axios.post(URL+"rentals/"+this.state.selectedMovieTitle+"/check-out", {
- //     title: this.state.selectedMovie,
- //     customer_id: this.state.customerId,
- //     due_date: date
- //   })
- //   .then((response) => {
- //     console.log(response);
- //   })
- //   .catch((error) => {
- //     console.log(error);
- //   })
- //
- // }
+
    createRental = () => {
-     console.log(URL);
-     console.log(this.state.customerId);
-     console.log(this.state.selectedMovie);
-    axios.post(URL + `?customer_id=${this.state.customerId}&title=${this.state.selectedMovie}`)
+     let date = new Date();
+     date.setDate(date.getDate() + 7);
+    axios.post(URL + `${this.state.selectedMovie}/check-out?customer_id=${this.state.customerId}&due_date=${date}`)
     .then((response) => {
       console.log(response);
     })
@@ -72,9 +51,6 @@ class App extends Component {
     const home = () => {
       return (<p>Welcome!</p>);
     };
-
-
-
 
     return (
       <Router>
@@ -100,9 +76,6 @@ class App extends Component {
       render={(props) => <CustomerCollection {...props} selectedCustomerCallback={this.setSelectedCustomer} />}
 
       />
-
-
-
       </section>
       </Router>
     );
