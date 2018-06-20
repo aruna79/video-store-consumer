@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 class Customer extends Component {
   constructor(props) {
     super(props);
-
-    console.log(props);
   }
 
 
@@ -22,7 +20,7 @@ class Customer extends Component {
 
 
   selectedCustomerCallback = () => {
-    
+
     this.props.selectedCustomerCallback(this.props.name, this.props.id);
   }
   render () {
