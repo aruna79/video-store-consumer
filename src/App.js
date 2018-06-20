@@ -11,7 +11,7 @@ import SearchCollection from './components/SearchCollection';
 import CustomerCollection from './components/CustomerCollection';
 import Library from './components/Library';
 
-const URL = "http://localhost:3001/rentals/check-out"
+
 
 class App extends Component {
   constructor () {
@@ -41,16 +41,7 @@ class App extends Component {
       return (<p>Welcome!</p>);
     };
 
-    makeRental = () => {
-    console.log(URL + `?customer_id=${this.state.selectedCustomerId}&title=${this.state.selectedMovie}`);
-    axios.post(URL + `?customer_id=${this.state.selectedCustomerId}&title=${this.state.selectedMovie}`)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }
+    
 
 
     return (
