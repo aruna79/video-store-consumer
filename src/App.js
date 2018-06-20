@@ -10,7 +10,8 @@ import './App.css';
 import SearchCollection from './components/SearchCollection';
 import CustomerCollection from './components/CustomerCollection';
 import Library from './components/Library';
-import Movie from './components/Movie';
+
+const URL = "http://localhost:3001/rentals/check-out"
 
 class App extends Component {
   constructor () {
@@ -18,6 +19,7 @@ class App extends Component {
     this.state = {
       selectedMovie: "",
       selectedCustomer: "",
+      customerId: ""
     }
   }
 
@@ -26,9 +28,10 @@ class App extends Component {
       selectedMovie: title,
     });
   }
-  setSelectedCustomer = (name) => {
+  setSelectedCustomer = (name,id) => {
     this.setState({
       selectedCustomer: name,
+      customerId: id
     });
   }
 
@@ -37,6 +40,17 @@ class App extends Component {
     const home = () => {
       return (<p>Welcome!</p>);
     };
+
+    makeRental = () => {
+    console.log(URL + `?customer_id=${this.state.selectedCustomerId}&title=${this.state.selectedMovie}`);
+    axios.post(URL + `?customer_id=${this.state.selectedCustomerId}&title=${this.state.selectedMovie}`)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 
 
     return (
@@ -47,7 +61,7 @@ class App extends Component {
       <li><Link to="/search">Search</Link></li>
       <li><Link to="/customers">Customer</Link></li>
       <li><Link to="/library">Library</Link></li>
-
+      <li><button onClick={this.Rental}>Make Rental</button></li>
       <li>selectedMovie: {this.state.selectedMovie}</li>
       <li>selectedCustomer: {this.state.selectedCustomer}</li>
 
