@@ -14,6 +14,7 @@ class Customer extends Component {
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     accountCredit: PropTypes.string.isRequired,
+    id: PropTypes.number,
     checkedOutMoviesCount: PropTypes.string.isRequired,
     selectedCustomerCallback: PropTypes.func.isRequired,
   }
@@ -21,11 +22,11 @@ class Customer extends Component {
 
 
   selectedCustomerCallback = () => {
-    console.log(this.props);
-    this.props.selectedCustomerCallback(this.props.name);
+    
+    this.props.selectedCustomerCallback(this.props.name, this.props.id);
   }
   render () {
-    console.log('in customer component');
+
     return (
       <article className="customer-container">
         <h2>{this.props.name}</h2>

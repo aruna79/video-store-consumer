@@ -28,10 +28,10 @@ class CustomerCollection extends Component {
   }
 
   renderCustomerList = () => {
-    const customerList = this.state.customers.map((customer,index) => {
+    const customerList = this.state.customers.map((customer) => {
       return (
         <Customer
-          key={index}
+          key={customer.id}
           id={customer.id}
           name={customer.name}
           phone={customer.phone}
