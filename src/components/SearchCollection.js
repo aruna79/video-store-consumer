@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
   import axios from 'axios';
 import Search from './Search';
 import Movie from './Movie';
+import MovieResult from './MovieResult'
 
 class SearchCollection extends Component {
   constructor(props){
@@ -24,25 +25,38 @@ class SearchCollection extends Component {
     });
   }
 
-  onFormSubmit = (event) => {
-    const movies = this.state.matchingMovies
-    event.preventDefault();
-    console.log(movies[event.target.getAttribute('value')]);
+  addToLibrary = (movie) => {
+    console.log('Adding Movie');
+    console.log(movie);
+    axios.post(`http://localhost:3000/movies`, movie)
+    .then((response) => {
+      console.log(response);
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.message);
+      this.setState({
+        message: error.message,
+      })
+    });
   }
 
-
   renderMovieList = () => {
+    let movies = this.state.matchingMovies
     const componentList = this.state.matchingMovies.map((movie,index) =>{
       return (
-        <form key={movie.title} onSubmit={this.onFormSubmit} value={index}  >
-          <Movie
+          <MovieResult
             value={index}
             key={index}
             title={movie.title}
+            overview={movie.overview}
+            image_url={movie.image_url.substring(31)}
+            release_date={movie.release_date}
+            external_id={movie.external_id}
             image={movie.image_url}
+            details={movies[index]}
+            addToLibraryCallback={this.addToLibrary}
           />
-          <input type='submit' value='Add to Library'/>
-        </form>
       )
     } );
     return componentList;
