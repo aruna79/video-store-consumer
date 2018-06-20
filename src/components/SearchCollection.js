@@ -24,6 +24,13 @@ class SearchCollection extends Component {
       this.setState({error: error.message})
     });
   }
+  renderMessage = () => {
+    if(this.state.message){
+      return(
+        <p>{this.state.message}</p>
+      )
+    }
+  }
 
   addToLibrary = (movie) => {
     console.log('Adding Movie');
@@ -32,6 +39,9 @@ class SearchCollection extends Component {
     .then((response) => {
       console.log(response);
       console.log(response.data);
+      this.setState({
+        message: "Added a movie to the library",
+      })
     })
     .catch((error) => {
       console.log(error.message);
@@ -56,6 +66,7 @@ class SearchCollection extends Component {
             image={movie.image_url}
             details={movies[index]}
             addToLibraryCallback={this.addToLibrary}
+
           />
       )
     } );
@@ -69,6 +80,7 @@ class SearchCollection extends Component {
       <Search
         searchMovieCallback={this.searchMovie}
       />
+      {this.renderMessage()}
       {this.renderMovieList()}
       </section>
     )

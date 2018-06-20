@@ -34,6 +34,13 @@ class App extends Component {
       customerId: id
     });
   }
+  renderMessage = () => {
+    if(this.state.message){
+      return(
+        <p>{this.state.message}</p>
+      )
+    }
+  }
 
    createRental = () => {
      let date = new Date();
@@ -41,8 +48,19 @@ class App extends Component {
     axios.post(URL + `${this.state.selectedMovie}/check-out?customer_id=${this.state.customerId}&due_date=${date}`)
     .then((response) => {
       console.log(response);
+      this.setState({
+        message: "Successfully added a Rental",
+
+        selectedMovie: "",
+        selectedCustomer: "",
+        selectedCustomerId: "",
+      })
+
     })
     .catch((error) => {
+      this.setState({
+        message: error.message
+      })
       console.log(error);
     })
   }
@@ -62,7 +80,8 @@ class App extends Component {
       <li><Link to="/library">Library</Link></li>
       <li>selectedMovie: {this.state.selectedMovie}</li>
       <li>selectedCustomer: {this.state.selectedCustomer}</li>
-      <button className="button" onClick={this.createRental}>Create Rental</button>
+    <button className="button" onClick={this.createRental}>Create Rental</button>
+    {this.renderMessage()}
       </ul>
 
       <Route exact path="/" component={home}/>
