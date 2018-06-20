@@ -27,7 +27,7 @@ class Movie extends Component {
       <div className="Movie">
         <h2>{this.props.title}</h2>
         <p>{this.props.releaseDate}</p>
-        <img src={this.props.image_url} />
+        <img src={this.props.image} />
         <p>{this.props.overview}</p>
         <button onClick={this.selectedMovieCallback} >Select This Movie</button>
       </div>
