@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import MovieResult from './MovieResult'
+import './SearchCollection.css'
 
 class SearchCollection extends Component {
   constructor(props){
     super(props);
     this.state = {
       matchingMovies: [],
+      resultsSummary: ""
     }
   }
 
@@ -16,6 +18,7 @@ class SearchCollection extends Component {
     .then((response) => {
       this.setState({
         matchingMovies: response.data,
+        resultsSummary: `Found ${response.data.length} results for ${movie}`
       });
     })
     .catch((error) => {
@@ -75,11 +78,12 @@ class SearchCollection extends Component {
     return(
       <section>
       <p>{this.state.error}</p>
+      <section className="results-bar">{this.state.resultsSummary}</section>
       <Search
         searchMovieCallback={this.searchMovie}
       />
       {this.renderMessage()}
-      {this.renderMovieList()}
+      {this.renderMovieList() }
       </section>
     )
   }

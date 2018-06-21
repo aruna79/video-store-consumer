@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Movie from './Movie';
+import './Library.css'
 
 class Library extends Component {
   constructor(props){
@@ -34,7 +35,6 @@ class Library extends Component {
         title={movie.title}
         selectedMovieCallback={this.props.selectedMovieCallback}
         />
-
       )
     } );
     return componentList;
@@ -42,10 +42,10 @@ class Library extends Component {
 
   render() {
     return(
-      <section>
-        <header><h2> Library </h2></header>
+      <section className="libCollection">
+        <h1>Library</h1>
         <p>{this.state.error}</p>
-        { this.renderMovieList()}
+        { this.renderMovieList() }
       </section>
     )
   }

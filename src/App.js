@@ -50,10 +50,10 @@ class App extends Component {
     .then((response) => {
       console.log(response);
       this.setState({
-        message: "Successfully added a Rental",
+        message: "Successfully created Rental",
 
-        selectedMovie: "",
-        selectedCustomer: "",
+        selectedMovie: "None",
+        selectedCustomer: "None",
         selectedCustomerId: "",
       })
 
@@ -74,22 +74,24 @@ class App extends Component {
     return (
       <Router>
       <section className="body">
-        <header>
+        <header className="hollywood">
         <Link to="/"><img src={mainLogo} className="App-logo" />Hollywood Video</Link>
         </header>
         <section className="nav-bar">
           <ul className="nav-items">
-            <li><Link to="/search"> <Ionicon icon="ios-search" fontSize="35px" color="black"/><div>Search</div>
+            <li><Link to="/search"> <Ionicon icon="ios-search" color="black" fontSize="35px" /><div>Search</div>
             </Link></li>
-            <li><Link to="/customers"><Ionicon icon="ios-people" fontSize="35px" color="black"/><div>Customers</div></Link></li>
             <li><Link to="/library"><Ionicon icon="ios-film" fontSize="35px" color="black"/><div>Library</div></Link></li>
+            <li><Link to="/customers"><Ionicon icon="ios-people" fontSize="35px" color="black"/><div>Customers</div></Link></li>
           </ul>
           <ul className="rental-items">
-            <li>Selected Movie: {this.state.selectedMovie}</li>
-            <li>Selected Customer: {this.state.selectedCustomer}</li>
-            <button className="button" onClick={this.createRental}>Create Rental</button>
-            {this.renderMessage()}
+            <li><div className="selection-container">Selected Movie: <div className="selection">{this.state.selectedMovie}</div></div></li>
+            <li><div className="selection-container">Customer:<div className="selection"> {this.state.selectedCustomer}</div></div></li>
+            <li><button className="button" onClick={this.createRental}> Check-out</button></li>
           </ul>
+        </section>
+        <section>
+        {this.renderMessage()}
         </section>
 
       <Route exact path="/" component={home}/>
