@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Movie extends Component {
+class MovieResult extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
@@ -28,9 +28,14 @@ class Movie extends Component {
   }
 }
 
-Movie.propTypes = {
+MovieResult.propTypes = {
+  image_url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  release_date: PropTypes.instanceOf(Date),
+  external_id: PropTypes.number.isRequired,
+  addToLibraryCallback: PropTypes.func.isRequired
 }
 
-export default Movie;
+export default MovieResult;

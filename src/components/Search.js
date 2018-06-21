@@ -37,4 +37,10 @@ class Search extends Component{
   }
 }
 
+
+Search.propTypes = {
+  searchMovieCallback: PropTypes.func.isRequired,
+}
+
+
 export default Search;

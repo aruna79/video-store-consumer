@@ -7,7 +7,6 @@ class Customer extends Component {
     super(props);
   }
 
-
   static propTypes = {
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
@@ -16,8 +15,6 @@ class Customer extends Component {
     checkedOutMoviesCount: PropTypes.string.isRequired,
     selectedCustomerCallback: PropTypes.func.isRequired,
   }
-
-
 
   selectedCustomerCallback = () => {
 

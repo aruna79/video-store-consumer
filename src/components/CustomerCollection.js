@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import PropTypes from 'prop-types';
 import Customer from './Customer.js'
 
 const URL = "http://localhost:3000/customers"
@@ -36,7 +37,7 @@ class CustomerCollection extends Component {
           name={customer.name}
           phone={customer.phone}
           accountCredit={customer.account_credit}
-          checkedOutMoviesCount={customer.movies_check_out_count}
+          checkedOutMoviesCount={customer.movies_checked_out_count}
           selectedCustomerCallback={this.props.selectedCustomerCallback}
         />
       );
@@ -52,5 +53,11 @@ class CustomerCollection extends Component {
     );
   }
 }
+
+
+CustomerCollection.propTypes = {
+  selectedCustomerCallback: PropTypes.func.isRequired,
+}
+
 
 export default CustomerCollection;

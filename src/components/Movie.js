@@ -31,7 +31,12 @@ class Movie extends Component {
       </div>
     );
   }
-
 }
+
+
+Movie.propTypes = {
+  image: PropTypes.string.isRequired,
+}
+
 
 export default Movie;

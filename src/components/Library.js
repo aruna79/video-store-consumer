@@ -51,4 +51,10 @@ class Library extends Component {
   }
 }
 
+
+Library.propTypes = {
+  selectedMovieCallback: PropTypes.func.isRequired,
+}
+
+
 export default Library;
