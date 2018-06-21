@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './MovieResult.css'
 
 class MovieResult extends Component {
 
@@ -17,7 +18,7 @@ class MovieResult extends Component {
 
   render() {
     return (
-      <article>
+      <article className="movie-details">
         <img src={this.props.image}/>
         <p>{this.props.title}</p>
       <form onSubmit={this.onFormSubmit}>

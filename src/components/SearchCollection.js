@@ -76,14 +76,14 @@ class SearchCollection extends Component {
 
   render() {
     return(
-      <section>
-      <p>{this.state.error}</p>
+      <section className="collection">
+      {this.state.error &&<div className="error">{this.state.error}</div>}
       <section className="results-bar">{this.state.resultsSummary}</section>
       <Search
         searchMovieCallback={this.searchMovie}
       />
       {this.renderMessage()}
-      {this.renderMovieList() }
+      <div className="search-list">{this.renderMovieList() }</div>
       </section>
     )
   }

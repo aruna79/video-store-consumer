@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Search.css'
 
 class Search extends Component{
   constructor(){
@@ -24,8 +25,11 @@ class Search extends Component{
   render(){
     return(
       <form onSubmit={this.onFormSubmit}>
+      <header className='new-card-form__header'><h3>Search by Movie Title</h3></header>
+
       <div>
         <input
+          className="searchField"
           name="query"
           value={this.state.query}
           onChange={this.onFieldChange}

@@ -90,9 +90,7 @@ class App extends Component {
             <li><button className="button" onClick={this.createRental}> Check-out</button></li>
           </ul>
         </section>
-        <section>
         {this.renderMessage()}
-        </section>
 
       <Route exact path="/" component={home}/>
       <Route path="/search" component={SearchCollection}/>
