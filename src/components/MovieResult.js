@@ -15,6 +15,7 @@ class MovieResult extends Component {
     this.props.addToLibraryCallback(movie)
   }
 
+
   render() {
     return (
       <article>
@@ -23,6 +24,7 @@ class MovieResult extends Component {
       <form onSubmit={this.onFormSubmit}>
         <input type='submit' value='Add to Library' />
       </form>
+      
       </article>
     )
   }
