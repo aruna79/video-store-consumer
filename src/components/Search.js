@@ -35,7 +35,7 @@ class Search extends Component{
           onChange={this.onFieldChange}
           type="text" />
       </div>
-      <input type='submit' value='Search for Movie' />
+      <input type='submit' value='Search for Movie' className="search-button"/>
       </form>
       )
   }

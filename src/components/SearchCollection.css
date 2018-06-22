@@ -11,5 +11,17 @@
 }
 
 .error {
-  background-color: red;
+  padding: 10px;
+  color: red;
+}
+
+.results-bar {
+  padding: 10px;
+  font-size: 1.5em;
+  color: rgb(1, 13, 97);
+}
+
+.add-message {
+  padding: 10px;
+  color: rgb(1, 13, 97);
 }

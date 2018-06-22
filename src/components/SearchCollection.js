@@ -18,7 +18,8 @@ class SearchCollection extends Component {
     .then((response) => {
       this.setState({
         matchingMovies: response.data,
-        resultsSummary: `Found ${response.data.length} results for ${movie}`
+        resultsSummary: `Found ${response.data.length} results for ${movie}`,
+        error: ""
       });
     })
     .catch((error) => {
@@ -34,14 +35,12 @@ class SearchCollection extends Component {
   }
 
   addToLibrary = (movie) => {
-    console.log('Adding Movie');
-    console.log(movie);
     axios.post(`http://localhost:3000/movies`, movie)
     .then((response) => {
       console.log(response);
       console.log(response.data);
       this.setState({
-        message: "Added a movie to the library",
+        message: "Added movie to library",
       })
     })
     .catch((error) => {
@@ -82,7 +81,7 @@ class SearchCollection extends Component {
       <Search
         searchMovieCallback={this.searchMovie}
       />
-      {this.renderMessage()}
+      <div className="add-message">{this.renderMessage()}</div>
       <div className="search-list">{this.renderMovieList() }</div>
       </section>
     )

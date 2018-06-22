@@ -19,7 +19,8 @@ class CustomerCollection extends Component {
     axios.get(URL)
     .then((response) => {
       this.setState({
-        customers: response.data
+        customers: response.data,
+        customerSummary: `${response.data.length} Customers loaded`
       })
     })
     .catch((error) => {
@@ -48,10 +49,11 @@ class CustomerCollection extends Component {
 
   render() {
     return (
-      <div className="CustomerCollection">
-        <h1>Customers</h1>
-        {this.renderCustomerList()}
-      </div>
+      <section>
+        {this.state.error &&<div className="error">{this.state.error}</div>}
+        <section className="results-bar">{this.state.customerSummary}</section>
+          <div className="custList">{this.renderCustomerList()}</div>
+      </section>
     );
   }
 }

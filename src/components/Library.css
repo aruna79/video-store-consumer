@@ -1,7 +1,10 @@
-.libCollection {
-  padding: 2px 50px;
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
 }
 
-h1 {
-  font-size: 2em;
+.libCollection {
+  margin-top: 0;
 }

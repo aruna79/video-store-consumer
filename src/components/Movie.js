@@ -1,6 +1,6 @@
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import "./Movie.css"
 
 class Movie extends Component {
 
@@ -22,17 +22,21 @@ class Movie extends Component {
 
   render() {
     return (
-      <div className="Movie">
+      <article className="details">
+        <div className="title">
         <h2>{this.props.title}</h2>
-        <p>{this.props.releaseDate}</p>
         <img src={this.props.image} />
+        </div>
+        <div className="overview">
+        <p>Release Date: {this.props.releaseDate}</p>
         <p>{this.props.overview}</p>
-        <button onClick={this.selectedMovieCallback} >Select This Movie</button>
-      </div>
+        </div>
+        <div className="button-wrapper">
+        <button className="selectMovie" onClick={this.selectedMovieCallback} >Select This Movie</button></div>
+      </article>
     );
   }
 }
-
 
 Movie.propTypes = {
   image: PropTypes.string.isRequired,

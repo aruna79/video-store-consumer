@@ -17,6 +17,7 @@ class Library extends Component {
     .then((response) => {
       this.setState({
         movies: response.data,
+        librarySummary: `${response.data.length} Movies loaded`
       });
     })
     .catch((error) => {
@@ -33,6 +34,8 @@ class Library extends Component {
         id={movie.id}
         image={movie.image_url}
         title={movie.title}
+        overview={movie.overview}
+        releaseDate={movie.release_date}
         selectedMovieCallback={this.props.selectedMovieCallback}
         />
       )
@@ -43,9 +46,9 @@ class Library extends Component {
   render() {
     return(
       <section className="libCollection">
-        <h1>Library</h1>
-        <p>{this.state.error}</p>
-        { this.renderMovieList() }
+      {this.state.error &&<div className="error">{this.state.error}</div>}
+      <section className="results-bar">{this.state.librarySummary}</section>
+      <div className="list">{ this.renderMovieList() }</div>
       </section>
     )
   }
